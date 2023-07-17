@@ -15,16 +15,18 @@ def get_company_name(symbol):
 
 def main():
     st.title("Finance Project with Streamlit")
-    st.write("Welcome to our finance app!")
+    st.write("This app shows the Stock Prices Trend for the stock symbol entered!")
 
     # Get user inputs
     symbol = st.text_input("Enter the stock symbol (e.g., AAPL):", "AAPL")
+    company_name = get_company_name(symbol)
+    st.write(company_name)
     start_date = st.date_input("Start date:", datetime(2022, 1, 1))
-    end_date = date.today()
+
+    end_date = st.date_input("End Date:", date.today())
 
     # Fetch and display stock data
     stock_data = get_stock_data(symbol, start_date, end_date)
-    company_name = get_company_name(symbol)
 
 
     st.subheader(f"{symbol} Stock Prices from {start_date} to {end_date}")
