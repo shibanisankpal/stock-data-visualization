@@ -11,7 +11,7 @@ def get_stock_data(symbol, start_date, end_date):
 
 def main():
     st.title("Finance Project with Streamlit")
-    st.write("Welcome to your finance app!")
+    st.write("Welcome to our finance app!")
 
     # Get user inputs
     symbol = st.text_input("Enter the stock symbol (e.g., AAPL):", "AAPL")
