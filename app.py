@@ -9,6 +9,10 @@ def get_stock_data(symbol, start_date, end_date):
     stock_data = yf.download(symbol, start=start_date, end=end_date)
     return stock_data
 
+def get_company_name(symbol):
+    company = yf.Ticker(symbol)
+    return company.info['longName']
+
 def main():
     st.title("Finance Project with Streamlit")
     st.write("Welcome to our finance app!")
@@ -20,6 +24,9 @@ def main():
 
     # Fetch and display stock data
     stock_data = get_stock_data(symbol, start_date, end_date)
+    company_name = get_company_name(symbol)
+
+
     st.subheader(f"{symbol} Stock Prices from {start_date} to {end_date}")
     st.line_chart(stock_data["Adj Close"])
 
